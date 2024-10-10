@@ -1,9 +1,20 @@
+using dotnet_user.Infrastructure;
+using dotnet_user_api.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adicionar o ApplicationDbContext
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Chave JWT (pode ser movida para a configuração)
+var jwtKey = builder.Configuration["JwtSettings:Key"];
+
+// Adicionar os serviços de Identity e JWT
+builder.Services.AddIdentityServices(jwtKey);
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,6 +28,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

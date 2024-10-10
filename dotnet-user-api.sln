@@ -5,17 +5,20 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E190DC58-6ED9-4CA3-B31B-4DC819061600}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Domain", "src\dotnet-user-api.Domain\dotnet-user.Domain.csproj", "{272BCCB0-2AE8-4B45-AD78-DE6A3DE7B404}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Domain", "src\dotnet-user.Domain\dotnet-user.Domain.csproj", "{272BCCB0-2AE8-4B45-AD78-DE6A3DE7B404}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Application", "src\dotnet-user-api.Application\dotnet-user.Application.csproj", "{E1A06620-46C4-4E38-A7FB-163822824BFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Application", "src\dotnet-user.Application\dotnet-user.Application.csproj", "{E1A06620-46C4-4E38-A7FB-163822824BFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Infrastructure", "src\dotnet-user-api.Infrastructure\dotnet-user.Infrastructure.csproj", "{F243B8A6-8584-49F6-9752-82D5419600A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.Infrastructure", "src\dotnet-user.Infrastructure\dotnet-user.Infrastructure.csproj", "{F243B8A6-8584-49F6-9752-82D5419600A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E1A06620-46C4-4E38-A7FB-163822824BFF} = {E1A06620-46C4-4E38-A7FB-163822824BFF}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-user.WebApi", "src\dotnet-user.WebApi\dotnet-user.WebApi.csproj", "{503E9B8B-E5BF-45C9-A6D9-DCB693840D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-user.WebApi", "src\dotnet-user.WebApi\dotnet-user.WebApi.csproj", "{503E9B8B-E5BF-45C9-A6D9-DCB693840D24}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{62688AE8-2CE6-483C-B322-BFE14CB3F046}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "tests\Application.UnitTests\Application.UnitTests.csproj", "{007DA75B-60E0-458C-863F-D51B8A7FEA62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.UnitTests", "tests\Application.UnitTests\Application.UnitTests.csproj", "{007DA75B-60E0-458C-863F-D51B8A7FEA62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dotnet-user-api.Domain\dotnet-user.Domain.csproj" />
+    <ProjectReference Include="..\dotnet-user.Domain\dotnet-user.Domain.csproj" />
   </ItemGroup>
 
 </Project>
