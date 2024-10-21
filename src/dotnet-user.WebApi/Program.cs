@@ -13,6 +13,9 @@ builder.Services.ConfigureApplicationApp();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 // Swagger
 builder.Services.AddSwaggerGen(c =>
 {
@@ -40,8 +43,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddHttpContextAccessor();
+
 // Configure the HTTP request pipeline.
-var app = builder.Build(); // Aqui você constrói a aplicação
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -51,9 +56,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseExceptionHandler();
 
 app.MapControllers();
 

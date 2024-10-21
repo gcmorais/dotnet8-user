@@ -6,11 +6,13 @@
         public ICollection<Products> Products { get; private set; }
 
         private Category() { }
-        public Category(string name)
+
+        public Category(string name, string userId)
         {
             Name = name;
             Products = new List<Products>();
         }
+
         public void UpdateName(string newName)
         {
             Name = newName;
