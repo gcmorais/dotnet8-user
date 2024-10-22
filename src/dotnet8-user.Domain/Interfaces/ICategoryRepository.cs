@@ -4,7 +4,7 @@ namespace dotnet8_user.Domain.Interfaces
 {
     public interface ICategoryRepository : IBaseRepository<Category>
     {
-        Task<User> GetById(int id, CancellationToken cancellationToken);
-        Task<User> GetByName(string name, CancellationToken cancellationToken);
+        Task<Category> GetById(Guid id, CancellationToken cancellationToken);
+        Task<Category> GetByName(string name, CancellationToken cancellationToken);
     }
 }
