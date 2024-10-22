@@ -1,0 +1,6 @@
+@dotnet8_user.Api_HostAddress = http://localhost:5094
+
+GET {{dotnet8_user.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
