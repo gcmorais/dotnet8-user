@@ -9,5 +9,6 @@ namespace dotnet8_user.Infrastructure.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Products> Products { get; set; }
     }
 }
