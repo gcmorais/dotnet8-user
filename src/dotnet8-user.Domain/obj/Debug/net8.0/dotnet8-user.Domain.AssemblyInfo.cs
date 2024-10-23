@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dotnet8-user.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20c29b7c6d219470ac9139f8be2c8b1dbb2911f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f77df06ce986b07042c2cd5c293f19833dfc5adf")]
 [assembly: System.Reflection.AssemblyProductAttribute("dotnet8-user.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dotnet8-user.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -24,4 +24,8 @@
     <ProjectReference Include="..\dotnet8-user.Application\dotnet8-user.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

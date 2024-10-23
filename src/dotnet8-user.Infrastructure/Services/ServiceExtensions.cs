@@ -1,4 +1,5 @@
-﻿using dotnet8_user.Domain.Interfaces;
+﻿using dotnet8_user.Application.Services;
+using dotnet8_user.Domain.Interfaces;
 using dotnet8_user.Infrastructure.Context;
 using dotnet8_user.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -16,8 +17,8 @@ namespace dotnet8_user.Infrastructure.Services
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICreateVerifyHash, ServiceHash>();
 
-           
         }
     }
 }
