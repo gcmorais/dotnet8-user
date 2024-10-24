@@ -26,10 +26,9 @@ namespace dotnet8_user.Application.UseCases.UserUseCases.Create
         public async Task<UserResponse> Handle(UserCreateRequest request, CancellationToken cancellationToken)
         {
             var existingUser = await _userRepository.GetByEmail(request.Email, cancellationToken);
-            if (existingUser != null)
-            {
-                throw new InvalidOperationException("User with the same email already exists.");
-            }
+
+
+            if (existingUser != null) throw new InvalidOperationException("User with the same email already exists.");
 
             _createVerifyHash.CreateHashPassword(request.Password, out byte[] hashPassword, out byte[] saltPassword);
 
