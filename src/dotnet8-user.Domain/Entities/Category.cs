@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace dotnet8_user.Domain.Entities
+﻿namespace dotnet8_user.Domain.Entities
 {
     public class Category : BaseEntity
     {
