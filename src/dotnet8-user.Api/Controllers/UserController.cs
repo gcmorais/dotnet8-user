@@ -34,7 +34,7 @@ namespace dotnet8_user.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UserResponse>> Update(Guid id, UpdateUserRequest request, CancellationToken cancellationToken)
+        public async Task<ActionResult<UserResponse>> Update(Guid id, UserUpdateRequest request, CancellationToken cancellationToken)
         {
             if (id != request.Id) return BadRequest();
 

@@ -3,7 +3,7 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.CategoryUseCases.Create
 {
-    public sealed record CategoryCreateRequest : IRequest<CategoryResponse>
+    public sealed record CategoryCreateRequest : IRequest<CategoryResponse>, ICategoryRequest
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.Create
 {
-    public sealed record UserCreateRequest : IRequest<UserResponse>
+    public sealed record UserCreateRequest : IRequest<UserResponse>, IUserRequest
     {
         public string Email { get; set; }
         public string FullName { get; set; }

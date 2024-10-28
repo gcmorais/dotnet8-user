@@ -5,19 +5,19 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.Update
 {
-    public class UpdateUserHandler : IRequestHandler<UpdateUserRequest, UserResponse>
+    public class UserUpdateHandler : IRequestHandler<UserUpdateRequest, UserResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
 
-        public UpdateUserHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
+        public UserUpdateHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
             _mapper = mapper;
         }
-        public async Task<UserResponse> Handle(UpdateUserRequest request, CancellationToken cancellationToken)
+        public async Task<UserResponse> Handle(UserUpdateRequest request, CancellationToken cancellationToken)
         {
             var user = await _userRepository.Get(request.Id, cancellationToken);
 

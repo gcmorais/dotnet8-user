@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace dotnet8_user.Application.UseCases.CategoryUseCases.Create
+namespace dotnet8_user.Application.UseCases.CategoryUseCases.Common
 {
-    public sealed class CategoryCreateValidator : AbstractValidator<CategoryCreateRequest>
+    public sealed class CategoryValidator<T> : AbstractValidator<T> where T : ICategoryRequest
     {
-        public CategoryCreateValidator()
+        public CategoryValidator()
         {
             RuleFor(x => x.UserId).NotEmpty();
             RuleFor(x => x.Name).NotEmpty().MinimumLength(3).MaximumLength(50);

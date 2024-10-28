@@ -3,5 +3,11 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.CategoryUseCases.Update
 {
-    public sealed record CategoryUpdateRequest(Guid Id, string Name, string Description) : IRequest<CategoryResponse>;
+    public sealed record CategoryUpdateRequest : IRequest<CategoryResponse>, ICategoryRequest
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public Guid UserId { get; set; }
+    }
 }

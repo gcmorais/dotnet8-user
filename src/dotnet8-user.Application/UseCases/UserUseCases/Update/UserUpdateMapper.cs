@@ -4,11 +4,11 @@ using dotnet8_user.Domain.Entities;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.Update
 {
-    public sealed class UpdateUserMapper : Profile
+    public sealed class UserUpdateMapper : Profile
     {
-        public UpdateUserMapper()
+        public UserUpdateMapper()
         {
-            CreateMap<UpdateUserRequest, User>();
+            CreateMap<UserUpdateRequest, User>();
             CreateMap<User, UserResponse>();
         }
     }
