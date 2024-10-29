@@ -8,8 +8,8 @@ namespace dotnet8_user.Application.UseCases.ProductUseCases.GetAll
     {
         public ProductGetAllMapper()
         {
-            CreateMap<ProductGetAllRequest, Products>();
-            CreateMap<Products, ProductResponse>();
+
+            CreateMap<Products, ProductGetAllResponse>();
             CreateMap<Products, ProductShortResponse>();
         }
     }

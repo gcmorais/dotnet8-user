@@ -5,7 +5,7 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.ProductUseCases.GetAll
 {
-    public class ProductGetAllHandler : IRequestHandler<ProductGetAllRequest, List<ProductResponse>>
+    public class ProductGetAllHandler : IRequestHandler<ProductGetAllRequest, List<ProductGetAllResponse>>
     {
         private readonly IProductsRepository _productsRepository;
         private readonly IMapper _mapper;
@@ -14,10 +14,10 @@ namespace dotnet8_user.Application.UseCases.ProductUseCases.GetAll
             _productsRepository = productsRepository;
             _mapper = mapper;
         }
-        public async Task<List<ProductResponse>> Handle(ProductGetAllRequest request, CancellationToken cancellationToken)
+        public async Task<List<ProductGetAllResponse>> Handle(ProductGetAllRequest request, CancellationToken cancellationToken)
         {
             var products = await _productsRepository.GetAll(cancellationToken);
-            return _mapper.Map<List<ProductResponse>>(products);
+            return _mapper.Map<List<ProductGetAllResponse>>(products);
         }
     }
 }

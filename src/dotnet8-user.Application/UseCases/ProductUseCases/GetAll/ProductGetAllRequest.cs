@@ -3,5 +3,5 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.ProductUseCases.GetAll
 {
-    public sealed record ProductGetAllRequest : IRequest<List<ProductResponse>>;
+    public sealed record ProductGetAllRequest : IRequest<List<ProductGetAllResponse>>;
 }

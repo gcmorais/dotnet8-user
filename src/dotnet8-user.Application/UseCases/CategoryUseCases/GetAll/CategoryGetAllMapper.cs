@@ -11,6 +11,7 @@ namespace dotnet8_user.Application.UseCases.CategoryUseCases.GetAll
             CreateMap<CategoryGetAllRequest, Category>();
             CreateMap<Category, CategoryResponse>();
             CreateMap<Category, CategoryShortResponse>();
+            CreateMap<Category, CategoryGetAllResponse>();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace dotnet8_user.Application.UseCases.ProductUseCases.Common
 {
-    public sealed record ProductResponse
+    public sealed record ProductGetAllResponse
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -12,6 +12,6 @@ namespace dotnet8_user.Application.UseCases.ProductUseCases.Common
         public string Brand { get; set; }
         public string ImageUrl { get; set; }
         public bool IsActive { get; set; }
-        public CategoryResponse Category { get; set; }
+        public CategoryGetAllResponse Category { get; set; }
     }
 }

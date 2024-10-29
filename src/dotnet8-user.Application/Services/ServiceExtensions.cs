@@ -5,6 +5,7 @@ using dotnet8_user.Application.UseCases.CategoryUseCases.Create;
 using dotnet8_user.Application.UseCases.CategoryUseCases.Update;
 using dotnet8_user.Application.UseCases.ProductUseCases.Common;
 using dotnet8_user.Application.UseCases.ProductUseCases.Create;
+using dotnet8_user.Application.UseCases.ProductUseCases.Update;
 using dotnet8_user.Application.UseCases.UserUseCases.Common;
 using dotnet8_user.Application.UseCases.UserUseCases.Create;
 using dotnet8_user.Application.UseCases.UserUseCases.Update;
@@ -30,6 +31,7 @@ namespace dotnet8_user.Application.Services
             services.AddTransient<IValidator<UserUpdateRequest>, UserValidator<UserUpdateRequest>>();
 
             services.AddTransient<IValidator<ProductCreateRequest>, ProductValidator<ProductCreateRequest>>();
+            services.AddTransient<IValidator<ProductUpdateRequest>, ProductValidator<ProductUpdateRequest>>();
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddExceptionHandler<GlobalExceptionHandler>();

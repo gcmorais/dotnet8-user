@@ -34,7 +34,56 @@
             Category = category;
             CategoryId = category.Id;
         }
+        public void UpdateName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name cannot be empty.", nameof(name));
 
+            Name = name;
+            UpdateDate();
+        }
+        public void UpdateDescription(string description)
+        {
+            if (string.IsNullOrWhiteSpace(description))
+                throw new ArgumentException("Description cannot be empty.", nameof(description));
+
+            Description = description;
+            UpdateDate();
+        }
+        public void UpdatePrice(decimal price)
+        {
+            if (price < 0) throw new ArgumentException("Price cannot be negative.", nameof(price));
+
+            Price = price;
+            UpdateDate();
+        }
+        public void UpdateStock(int stock)
+        {
+            if (stock < 0) throw new ArgumentException("Stock cannot be negative.", nameof(stock));
+
+            StockQuantity = stock;
+            UpdateDate();
+        }
+        public void UpdateBrand(string brand)
+        {
+            if (string.IsNullOrWhiteSpace(brand))
+                throw new ArgumentException("Brand cannot be empty.", nameof(brand));
+
+            Brand = brand;
+            UpdateDate();
+        }
+        public void UpdateImage(string img)
+        {
+            if (string.IsNullOrWhiteSpace(img))
+                throw new ArgumentException("Brand cannot be empty.", nameof(img));
+
+            ImageUrl = img;
+            UpdateDate();
+        }
+        public void Deactivate()
+        {
+            IsActive = false;
+        }
         public void Validations(string name, string description, decimal price, int stockquantity, string brand, string imageurl)
         {
             if (string.IsNullOrWhiteSpace(name))
