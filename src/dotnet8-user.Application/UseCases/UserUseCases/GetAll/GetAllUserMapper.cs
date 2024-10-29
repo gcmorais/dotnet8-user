@@ -4,11 +4,11 @@ using dotnet8_user.Domain.Entities;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.GetAll
 {
-    public class GetAllUserMapper : Profile
+    public sealed class GetAllUserMapper : Profile
     {
         public GetAllUserMapper()
         {
-            CreateMap<UserShortRequest, User>();
+            CreateMap<GetAllUserRequest, User>();
             CreateMap<User, UserShortResponse>();
         }
     }

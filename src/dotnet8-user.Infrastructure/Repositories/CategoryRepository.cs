@@ -22,6 +22,7 @@ namespace dotnet8_user.Infrastructure.Repositories
         {
             return await _context.Set<Category>()
                 .Include(c => c.User)
+                .Include(c => c.Products)
                 .ToListAsync(cancellationToken);
         }
     }

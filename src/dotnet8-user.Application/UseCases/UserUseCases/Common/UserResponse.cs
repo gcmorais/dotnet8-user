@@ -1,4 +1,6 @@
-﻿namespace dotnet8_user.Application.UseCases.UserUseCases.Common
+﻿using dotnet8_user.Application.UseCases.CategoryUseCases.Common;
+
+namespace dotnet8_user.Application.UseCases.UserUseCases.Common
 {
     public sealed record UserResponse
     {
@@ -8,5 +10,6 @@
         public string? UserName { get; set; }
         public byte[] HashPassword { get; set; }
         public byte[] SaltPassword { get; set; }
+        public List<CategoryShortResponse> Categories { get; set; }
     }
 }

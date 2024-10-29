@@ -5,7 +5,7 @@ using MediatR;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.GetAll
 {
-    public sealed class GetAllUserHandler : IRequestHandler<GetAllUserRequest, List<UserResponse>>
+    public class GetAllUserHandler : IRequestHandler<GetAllUserRequest, List<UserResponse>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;

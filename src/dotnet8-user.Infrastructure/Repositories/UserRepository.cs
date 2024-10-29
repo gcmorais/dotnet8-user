@@ -18,5 +18,13 @@ namespace dotnet8_user.Infrastructure.Repositories
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
+
+        public async Task<List<User>> GetAll(CancellationToken cancellationToken)
+        {
+            return await _context.Users
+                .Include(u => u.Categories)
+                .ThenInclude(c => c.Products)
+                .ToListAsync(cancellationToken);
+        }
     }
 }

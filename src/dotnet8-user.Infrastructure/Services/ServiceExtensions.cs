@@ -17,6 +17,7 @@ namespace dotnet8_user.Infrastructure.Services
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductsRepository, ProductsRepository>();
             services.AddScoped<ICreateVerifyHash, ServiceHash>();
 
         }

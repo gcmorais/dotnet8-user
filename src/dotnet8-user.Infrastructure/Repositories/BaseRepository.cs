@@ -32,12 +32,9 @@ namespace dotnet8_user.Infrastructure.Repositories
         {
             return await _context.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
-
         public async Task<List<T>> GetAll(CancellationToken cancellationToken)
         {
             return await _context.Set<T>().ToListAsync(cancellationToken);
         }
-
-
     }
 }
