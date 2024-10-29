@@ -26,7 +26,7 @@ namespace dotnet8_user.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult<List<CategoryResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new CategoryGetAllRequest(), cancellationToken);

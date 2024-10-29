@@ -1,7 +1,7 @@
-﻿using Azure;
-using dotnet8_user.Application.UseCases.ProductUseCases.Common;
+﻿using dotnet8_user.Application.UseCases.ProductUseCases.Common;
 using dotnet8_user.Application.UseCases.ProductUseCases.Create;
 using dotnet8_user.Application.UseCases.ProductUseCases.Deactivate;
+using dotnet8_user.Application.UseCases.ProductUseCases.Delete;
 using dotnet8_user.Application.UseCases.ProductUseCases.GetAll;
 using dotnet8_user.Application.UseCases.ProductUseCases.Update;
 using MediatR;
@@ -27,7 +27,7 @@ namespace dotnet8_user.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<ActionResult<List<ProductResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new ProductGetAllRequest(), cancellationToken);
@@ -43,10 +43,21 @@ namespace dotnet8_user.Api.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("{productId:guid}")]
+        [HttpDelete("Deactivate")]
         public async Task<IActionResult> DeactivateProduct(Guid productId)
         {
             var response = await _mediator.Send(new ProductDeactivateRequest(productId));
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(Guid? id, CancellationToken cancellationToken)
+        {
+            if (id is null) return BadRequest();
+
+            var productDeleteRequest = new ProductDeleteRequest(id.Value);
+
+            var response = await _mediator.Send(productDeleteRequest, cancellationToken);
             return Ok(response);
         }
     }
