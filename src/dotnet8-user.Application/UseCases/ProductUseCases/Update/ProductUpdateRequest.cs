@@ -1,4 +1,5 @@
-﻿using dotnet8_user.Application.UseCases.ProductUseCases.Common;
+﻿using dotnet8_user.Application.Interfaces;
+using dotnet8_user.Application.UseCases.ProductUseCases.Common;
 using MediatR;
 
 namespace dotnet8_user.Application.UseCases.ProductUseCases.Update

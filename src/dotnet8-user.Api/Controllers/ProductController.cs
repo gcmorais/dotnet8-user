@@ -5,12 +5,14 @@ using dotnet8_user.Application.UseCases.ProductUseCases.Delete;
 using dotnet8_user.Application.UseCases.ProductUseCases.GetAll;
 using dotnet8_user.Application.UseCases.ProductUseCases.Update;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet8_user.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -26,5 +26,10 @@ namespace dotnet8_user.Infrastructure.Repositories
                 .ThenInclude(c => c.Products)
                 .ToListAsync(cancellationToken);
         }
+
+        public async Task<User> GetByUserName(string username, CancellationToken cancellationToken)
+        {
+            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
+        }
     }
 }

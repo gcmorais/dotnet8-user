@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using dotnet8_user.Application.Interfaces;
+using FluentValidation;
 
 namespace dotnet8_user.Application.UseCases.ProductUseCases.Common
 {

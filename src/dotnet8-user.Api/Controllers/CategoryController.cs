@@ -4,12 +4,14 @@ using dotnet8_user.Application.UseCases.CategoryUseCases.Delete;
 using dotnet8_user.Application.UseCases.CategoryUseCases.GetAll;
 using dotnet8_user.Application.UseCases.CategoryUseCases.Update;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet8_user.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
         private readonly IMediator _mediator;

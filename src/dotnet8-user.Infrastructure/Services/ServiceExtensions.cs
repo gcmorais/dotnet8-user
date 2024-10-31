@@ -1,4 +1,5 @@
-﻿using dotnet8_user.Application.Services;
+﻿using dotnet8_user.Application.Interfaces;
+using dotnet8_user.Application.Services;
 using dotnet8_user.Domain.Interfaces;
 using dotnet8_user.Infrastructure.Context;
 using dotnet8_user.Infrastructure.Repositories;
@@ -18,6 +19,7 @@ namespace dotnet8_user.Infrastructure.Services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductsRepository, ProductsRepository>();
+            services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<ICreateVerifyHash, ServiceHash>();
 
         }

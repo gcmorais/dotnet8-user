@@ -1,4 +1,4 @@
-﻿namespace dotnet8_user.Application.UseCases.ProductUseCases.Common
+﻿namespace dotnet8_user.Application.Interfaces
 {
     public interface IProductRequest
     {

@@ -2,8 +2,11 @@
 using dotnet8_user.Application.UseCases.UserUseCases.Create;
 using dotnet8_user.Application.UseCases.UserUseCases.Delete;
 using dotnet8_user.Application.UseCases.UserUseCases.GetAll;
+using dotnet8_user.Application.UseCases.UserUseCases.Login;
 using dotnet8_user.Application.UseCases.UserUseCases.Update;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet8_user.Api.Controllers
