@@ -135,6 +135,10 @@ namespace dotnet8_user.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
+                    b.Property<string>("Roles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<byte[]>("SaltPassword")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");

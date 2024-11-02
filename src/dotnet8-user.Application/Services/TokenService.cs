@@ -1,4 +1,5 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using dotnet8_user.Application.Interfaces;
@@ -17,20 +18,22 @@ namespace dotnet8_user.Application.Services
             _configuration = configuration;
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user, List<string> roles)
         {
-            var claims = new[]
+            var claims = new List<Claim>
             {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName)
-        };
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.UserName)
+            };
+
+            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"], // Altere isso para usar a audiência correta
+                audience: _configuration["Jwt:Audience"],
                 claims,
                 expires: DateTime.Now.AddHours(1),
                 signingCredentials: creds);

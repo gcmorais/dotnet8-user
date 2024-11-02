@@ -26,7 +26,14 @@ namespace dotnet8_user.Application.UseCases.UserUseCases.Login
                 throw new UnauthorizedAccessException("Invalid username or password.");
             }
 
-            var token = _tokenService.GenerateToken(user);
+            var roles = new List<string> { "User" };
+
+            if (user.IsAdmin)
+            {
+                roles.Add("Admin");
+            }
+
+            var token = _tokenService.GenerateToken(user, roles);
             return new UserLoginResponse { Token = token };
         }
     }

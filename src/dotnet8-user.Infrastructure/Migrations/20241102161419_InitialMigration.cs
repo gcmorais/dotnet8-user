@@ -21,6 +21,7 @@ namespace dotnet8_user.Infrastructure.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     HashPassword = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     SaltPassword = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Roles = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     DateUpdated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     DateDeleted = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)

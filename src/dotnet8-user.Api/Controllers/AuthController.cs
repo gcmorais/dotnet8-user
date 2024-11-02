@@ -2,7 +2,6 @@
 using dotnet8_user.Application.UseCases.UserUseCases.Create;
 using dotnet8_user.Application.UseCases.UserUseCases.Login;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet8_user.Api.Controllers

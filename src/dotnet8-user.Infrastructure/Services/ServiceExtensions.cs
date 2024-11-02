@@ -20,6 +20,8 @@ namespace dotnet8_user.Infrastructure.Services
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductsRepository, ProductsRepository>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<DatabaseInitializer>();
+            services.AddScoped<ServiceHash>();
             services.AddScoped<ICreateVerifyHash, ServiceHash>();
 
         }

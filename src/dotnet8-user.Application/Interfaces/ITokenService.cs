@@ -4,6 +4,6 @@ namespace dotnet8_user.Application.Interfaces
 {
     public interface ITokenService
     {
-        string GenerateToken(User user);
+        string GenerateToken(User user, List<string> roles);
     }
 }

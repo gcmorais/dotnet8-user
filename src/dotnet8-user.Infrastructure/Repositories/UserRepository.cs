@@ -31,5 +31,35 @@ namespace dotnet8_user.Infrastructure.Repositories
         {
             return await _context.Users.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
         }
+
+        public async Task<User> CreateAdmin(User user, List<string> roles, CancellationToken cancellationToken)
+        {
+            if (!roles.Contains("Admin"))
+            {
+                roles.Add("Admin");
+            }
+
+            foreach (var role in roles)
+            {
+                user.AddRole(role);
+            }
+
+            await _context.Users.AddAsync(user, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return user;
+        }
+
+        public async Task<User> AssignRole(Guid userId, string role, CancellationToken cancellationToken)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId, cancellationToken);
+
+            user.AddRole(role);
+
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return user;
+        }
     }
 }

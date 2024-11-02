@@ -1,9 +1,11 @@
-using dotnet8_user.Infrastructure.Services;
+using System.Text;
 using dotnet8_user.Application.Services;
+using dotnet8_user.Domain.Interfaces;
+using dotnet8_user.Infrastructure;
+using dotnet8_user.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -74,4 +76,18 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+await InitializeDatabase(app.Services);
+
 app.Run();
+
+// Config do admin-master
+async Task InitializeDatabase(IServiceProvider serviceProvider)
+{
+    using (var scope = serviceProvider.CreateScope())
+    {
+        var userRepository = scope.ServiceProvider.GetRequiredService<IUserRepository>();
+        var serviceHash = scope.ServiceProvider.GetRequiredService<ServiceHash>();
+        var initializer = new DatabaseInitializer(userRepository, serviceHash);
+        await initializer.InitializeAsync(CancellationToken.None);
+    }
+}

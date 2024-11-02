@@ -12,7 +12,7 @@ using dotnet8_user.Infrastructure.Context;
 namespace dotnet8_user.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241022212950_InitialMigration")]
+    [Migration("20241102161419_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -137,6 +137,10 @@ namespace dotnet8_user.Infrastructure.Migrations
                     b.Property<byte[]>("HashPassword")
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Roles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("SaltPassword")
                         .IsRequired()

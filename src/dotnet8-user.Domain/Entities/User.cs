@@ -8,9 +8,14 @@
         public byte[] HashPassword { get; private set; }
         public byte[] SaltPassword { get; private set; }
         public ICollection<Category> Categories { get; private set; }
-        
-        private User() { }
-        public User(string fullname, string username, string email, byte[] hashPassword, byte[] saltPassword)
+        public List<string> Roles { get; private set; }
+        public bool IsAdmin => Roles != null && Roles.Contains("Admin");
+
+        private User()
+        {
+        }
+
+        public User(string fullname, string username, string email, byte[] hashPassword, byte[] saltPassword) : this()
         {
             if (string.IsNullOrWhiteSpace(fullname))
                 throw new ArgumentException("Name is required.", nameof(fullname));
@@ -26,6 +31,7 @@
             Email = email;
             HashPassword = hashPassword;
             SaltPassword = saltPassword;
+            Roles = new List<string>();
         }
 
         public void UpdateName(string newFullname)
@@ -36,6 +42,7 @@
             Fullname = newFullname;
             UpdateDate();
         }
+
         public void UpdateUsername(string newUsername)
         {
             if (string.IsNullOrWhiteSpace(newUsername))
@@ -44,6 +51,7 @@
             UserName = newUsername;
             UpdateDate();
         }
+
         public void UpdateEmail(string newEmail)
         {
             if (string.IsNullOrWhiteSpace(newEmail))
@@ -63,12 +71,32 @@
 
             Categories.Add(category);
         }
+
         public void RemoveCategory(Category category)
         {
             if (category == null)
                 throw new ArgumentNullException(nameof(category));
 
             Categories?.Remove(category);
+        }
+
+        public void AddRole(string role)
+        {
+            if (string.IsNullOrWhiteSpace(role))
+                throw new ArgumentException("Role cannot be empty.", nameof(role));
+
+            if (!Roles.Contains(role))
+            {
+                Roles.Add(role);
+            }
+        }
+
+        public void RemoveRole(string role)
+        {
+            if (Roles == null || !Roles.Contains(role))
+                throw new InvalidOperationException("Role not found.");
+
+            Roles.Remove(role);
         }
     }
 }
