@@ -29,16 +29,12 @@ namespace dotnet8_user.Infrastructure.Repositories
 
         public async Task<User> GetByUserName(string username, CancellationToken cancellationToken)
         {
-            return await _context.Users.FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
+            return await _context.Users
+            .FirstOrDefaultAsync(x => x.UserName == username, cancellationToken);
         }
 
         public async Task<User> CreateAdmin(User user, List<string> roles, CancellationToken cancellationToken)
         {
-            if (!roles.Contains("Admin"))
-            {
-                roles.Add("Admin");
-            }
-
             foreach (var role in roles)
             {
                 user.AddRole(role);

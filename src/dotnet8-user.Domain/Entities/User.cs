@@ -10,6 +10,7 @@
         public ICollection<Category> Categories { get; private set; }
         public List<string> Roles { get; private set; }
         public bool IsAdmin => Roles != null && Roles.Contains("Admin");
+        public bool IsMasterAdmin => Roles != null && Roles.Contains("MasterAdmin");
 
         private User()
         {
@@ -42,7 +43,6 @@
             Fullname = newFullname;
             UpdateDate();
         }
-
         public void UpdateUsername(string newUsername)
         {
             if (string.IsNullOrWhiteSpace(newUsername))

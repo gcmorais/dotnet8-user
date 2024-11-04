@@ -12,7 +12,7 @@ using dotnet8_user.Infrastructure.Context;
 namespace dotnet8_user.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241102161419_InitialMigration")]
+    [Migration("20241104160126_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />

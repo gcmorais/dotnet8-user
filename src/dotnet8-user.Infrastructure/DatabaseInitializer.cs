@@ -28,7 +28,7 @@ namespace dotnet8_user.Infrastructure
 
                 try
                 {
-                    await _userRepository.CreateAdmin(masterAdmin, new List<string> { "Admin" }, cancellationToken);
+                    await _userRepository.CreateAdmin(masterAdmin, new List<string> { "MasterAdmin" }, cancellationToken);
                 }
                 catch (InvalidOperationException ex)
                 {

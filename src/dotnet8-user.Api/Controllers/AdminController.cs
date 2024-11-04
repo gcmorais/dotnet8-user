@@ -1,5 +1,5 @@
-﻿using dotnet8_user.Application.UseCases.UserUseCases.Common;
-using dotnet8_user.Application.UseCases.UserUseCases.Create;
+﻿using dotnet8_user.Application.UseCases.AdminUseCases.Common;
+using dotnet8_user.Application.UseCases.AdminUseCases.Create;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace dotnet8_user.Api.Controllers
 
         [HttpPost("register-admin")]
         [Authorize(Roles = "MasterAdmin")]
-        public async Task<ActionResult<UserResponse>> RegisterAdmin(UserCreateRequest request, CancellationToken cancellationToken)
+        public async Task<ActionResult<AdminResponse>> RegisterAdmin(AdminCreateRequest request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);

@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using dotnet8_user.Application.UseCases.UserUseCases.Common;
-using dotnet8_user.Application.UseCases.UserUseCases.Create;
+using dotnet8_user.Application.UseCases.AdminUseCases.Common;
 using dotnet8_user.Domain.Entities;
 using dotnet8_user.Domain.Interfaces;
 using MediatR;
 
 namespace dotnet8_user.Application.UseCases.AdminUseCases.Create
 {
-    public class AdminCreateHandler : IRequestHandler<UserCreateRequest, UserResponse>
+    public class AdminCreateHandler : IRequestHandler<AdminCreateRequest, AdminResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
@@ -24,10 +23,10 @@ namespace dotnet8_user.Application.UseCases.AdminUseCases.Create
             _mapper = mapper;
             _createVerifyHash = createVerifyHash;
         }
-        public async Task<UserResponse> Handle(UserCreateRequest request, CancellationToken cancellationToken)
+
+        public async Task<AdminResponse> Handle(AdminCreateRequest request, CancellationToken cancellationToken)
         {
             var existingUser = await _userRepository.GetByEmail(request.Email, cancellationToken);
-
 
             if (existingUser != null) throw new InvalidOperationException("User with the same email already exists.");
 
@@ -39,13 +38,13 @@ namespace dotnet8_user.Application.UseCases.AdminUseCases.Create
                request.Email,
                hashPassword,
                saltPassword
-           );
+            );
 
-            _userRepository.CreateAdmin(user, new List<string> { "Admin" }, cancellationToken);
+            await _userRepository.CreateAdmin(user, new List<string> { "Admin" }, cancellationToken);
 
             await _unitOfWork.Commit(cancellationToken);
 
-            return _mapper.Map<UserResponse>(user);
+            return _mapper.Map<AdminResponse>(user);
         }
     }
 }
