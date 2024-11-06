@@ -11,6 +11,7 @@ namespace dotnet8_user.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -19,8 +20,9 @@ namespace dotnet8_user.Api.Controllers
         {
             _mediator = mediator;
         }
-
+        
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<UserResponse>> Create(UserCreateRequest request, CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);

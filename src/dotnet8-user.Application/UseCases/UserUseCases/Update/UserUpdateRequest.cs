@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 using dotnet8_user.Application.UseCases.UserUseCases.Common;
 using MediatR;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.Update
 {
-    public sealed record UserUpdateRequest() : IRequest<UserResponse>, IUserRequest
+    public sealed record UserUpdateRequest : IRequest<UserResponse>, IUserRequest
     {
         public Guid Id { get; set; }
         public string Email { get; set; }

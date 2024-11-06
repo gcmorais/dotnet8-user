@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dotnet8-user.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6cac8719b23d4f1069d35cd3df430662ff27a0e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+746a5f4bfac2f9269e0b7931123dfb637c35337b")]
 [assembly: System.Reflection.AssemblyProductAttribute("dotnet8-user.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dotnet8-user.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

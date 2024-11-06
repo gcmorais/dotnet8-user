@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using dotnet8_user.Application.UseCases.UserUseCases.Common;
 using dotnet8_user.Domain.Interfaces;
+using FluentValidation;
 using MediatR;
 
 namespace dotnet8_user.Application.UseCases.UserUseCases.Update
@@ -10,18 +11,31 @@ namespace dotnet8_user.Application.UseCases.UserUseCases.Update
         private readonly IUnitOfWork _unitOfWork;
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IValidator<UserUpdateRequest> _validator;
 
-        public UserUpdateHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
+        public UserUpdateHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper, IValidator<UserUpdateRequest> validator)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
             _mapper = mapper;
+            _validator = validator;
         }
+
         public async Task<UserResponse> Handle(UserUpdateRequest request, CancellationToken cancellationToken)
         {
+            var validationResult = await _validator.ValidateAsync(request, cancellationToken);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult.Errors);
+            }
+
             var user = await _userRepository.Get(request.Id, cancellationToken);
 
-            if (user == null) throw new InvalidOperationException("User not found.");
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
 
             if (!string.IsNullOrWhiteSpace(request.FullName))
             {
@@ -45,4 +59,5 @@ namespace dotnet8_user.Application.UseCases.UserUseCases.Update
             return _mapper.Map<UserResponse>(user);
         }
     }
+
 }

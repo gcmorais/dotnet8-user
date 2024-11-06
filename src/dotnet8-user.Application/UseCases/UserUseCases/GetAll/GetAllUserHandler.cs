@@ -19,6 +19,10 @@ namespace dotnet8_user.Application.UseCases.UserUseCases.GetAll
         public async Task<List<UserResponse>> Handle(GetAllUserRequest request, CancellationToken cancellationToken)
         {
             var users = await _userRepository.GetAll(cancellationToken);
+
+            if (users == null)
+                return new List<UserResponse>();
+
             return _mapper.Map<List<UserResponse>>(users);
         }
     }
