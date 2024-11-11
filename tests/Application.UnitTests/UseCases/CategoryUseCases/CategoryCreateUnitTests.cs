@@ -141,6 +141,5 @@ namespace Application.UnitTests.UseCases.CategoryUseCases
             _categoryRepositoryMock.Verify(repo => repo.Create(It.IsAny<Category>()), Times.Never);
             _unitOfWorkMock.Verify(u => u.Commit(cancellationToken), Times.Never);
         }
-
     }
 }
