@@ -14,7 +14,7 @@ For this project I used the following technologies and why:
 
 ``SQL Server``: A relational database chosen for its support of relationships and efficient queries.
 
-``Identity and JWT``: Used for user authentication and authorization, generating JWT tokens for administrative operations.
+``JWT``: Used for user authentication and authorization, generating JWT tokens for administrative operations.
 
 ``Clean Architecture and CQRS``: Implemented for learning purposes, supporting a more modular and scalable architecture.
 
