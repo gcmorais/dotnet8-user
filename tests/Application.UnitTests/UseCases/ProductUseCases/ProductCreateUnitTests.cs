@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using AutoFixture;
+﻿using AutoFixture;
 using AutoMapper;
 using dotnet8_user.Application.UseCases.CategoryUseCases.Common;
 using dotnet8_user.Application.UseCases.CategoryUseCases.Create;
@@ -7,10 +6,8 @@ using dotnet8_user.Application.UseCases.ProductUseCases.Common;
 using dotnet8_user.Application.UseCases.ProductUseCases.Create;
 using dotnet8_user.Application.UseCases.UserUseCases.Common;
 using dotnet8_user.Application.UseCases.UserUseCases.Create;
-using dotnet8_user.Application.UseCases.UserUseCases.Update;
 using dotnet8_user.Domain.Entities;
 using dotnet8_user.Domain.Interfaces;
-using FluentValidation;
 using Moq;
 using Shouldly;
 
@@ -178,13 +175,6 @@ namespace Application.UnitTests.UseCases.ProductUseCases
 
             _categoryRepositoryMock.Verify(repo => repo.Create(It.IsAny<Category>()), Times.Never);
             _unitOfWorkMock.Verify(u => u.Commit(cancellationToken), Times.Never);
-        }
-
-        [Fact]
-        public async Task InvalidProduct_CreateThrowsValidationException()
-        {
-            // Arrange
-            // Act & Assert
         }
     }
 }
