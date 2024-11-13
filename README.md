@@ -1,8 +1,8 @@
-# ProductFlow - ServerSide
+# GestProducts - ServerSide
 
 ## <a name="apresentation">Introduction</a>
 
-ProductFlow is a product inventory management project where users can create and associate products with categories. It includes authentication and authorization features to control access to endpoints.
+GestProducts is a product inventory management project where users can create and associate products with categories. It includes authentication and authorization features to control access to endpoints.
 
 ## <a name="techsUsage">Technologies Used</a>
 
@@ -47,8 +47,8 @@ Make sure you have the following installed on your machine:
 <a name="cloning"></a>
 
 ```bash
-git clone https://github.com/gcmorais/productflow-serverside.git
-cd productflow-serverside
+git clone https://github.com/gcmorais/gestproducts-serverside.git
+cd gestproducts-serverside
 ```
 
 **Installation**
@@ -86,8 +86,8 @@ Now let's configure our jwt token, so in the <strong>appsettings.json</strong> n
 ```env
 "Jwt": {
     "Key": "your_key_here",
-    "Issuer": "productflow",
-    "Audience": "productflow"
+    "Issuer": "gestproducts",
+    "Audience": "gestproducts"
 }
 ```
 
