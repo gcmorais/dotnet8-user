@@ -62,6 +62,8 @@ dotnet8-user.sln
 
 > [!note]
 >
+>  The project has evolved, and a name change became necessary. This is the reason for the difference between dotnet8-user and the final name, gestproducts.
+>
 >  Run the `dotnet restore` command, the .NET CLI uses NuGet to look for these dependencies and download them if necessary. 
 
 
