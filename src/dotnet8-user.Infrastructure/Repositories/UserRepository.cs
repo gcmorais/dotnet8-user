@@ -16,7 +16,10 @@ namespace dotnet8_user.Infrastructure.Repositories
 
         public async Task<User> GetById(Guid id, CancellationToken cancellationToken)
         {
-            return await _context.Users.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            return await _context.Users
+                .Include(u => u.Categories)
+                .ThenInclude(c => c.Products)
+                .FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
         public async Task<List<User>> GetAll(CancellationToken cancellationToken)

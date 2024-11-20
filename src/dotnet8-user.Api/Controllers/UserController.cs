@@ -2,6 +2,7 @@
 using dotnet8_user.Application.UseCases.UserUseCases.Create;
 using dotnet8_user.Application.UseCases.UserUseCases.Delete;
 using dotnet8_user.Application.UseCases.UserUseCases.GetAll;
+using dotnet8_user.Application.UseCases.UserUseCases.GetById;
 using dotnet8_user.Application.UseCases.UserUseCases.Update;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -34,6 +35,17 @@ namespace dotnet8_user.Api.Controllers
         public async Task<ActionResult<List<UserResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserResponse>> GetById(Guid id, CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetByIdUserRequest(id), cancellationToken);
+
+            if (response == null)
+                return NotFound();
+
             return Ok(response);
         }
 

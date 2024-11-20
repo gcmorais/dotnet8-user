@@ -6,6 +6,7 @@ namespace dotnet8_user.Domain.Interfaces
     {
         Task<User> GetByEmail(string email, CancellationToken cancellationToken);
         Task<User> GetByUserName(string username, CancellationToken cancellationToken);
+        Task<User> GetById(Guid userId, CancellationToken cancellationToken);
         Task<User> CreateAdmin(User user, List<string> roles, CancellationToken cancellationToken);
         Task<User> AssignRole(Guid userId, string role, CancellationToken cancellationToken);
     }
