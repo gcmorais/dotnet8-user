@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n+/+7vEbuag=",
+  "dgSpecHash": "/vrefchsx8g=",
   "success": true,
-  "projectFilePath": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
+  "projectFilePath": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",

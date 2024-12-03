@@ -1762,19 +1762,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\guilh\\.nuget\\packages\\": {}
+    "C:\\Users\\guilh\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
+      "projectUniqueName": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
       "projectName": "dotnet8-user.Application",
-      "projectPath": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
+      "projectPath": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Application\\dotnet8-user.Application.csproj",
       "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
-      "outputPath": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Application\\obj\\",
+      "outputPath": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Application\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1788,8 +1793,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj": {
-              "projectPath": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj"
+            "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj": {
+              "projectPath": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj"
             }
           }
         }
@@ -1802,8 +1807,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -1854,7 +1860,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

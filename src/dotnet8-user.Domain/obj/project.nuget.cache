@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DLHwVLnJwEg=",
+  "dgSpecHash": "mOKV/VH7VVI=",
   "success": true,
-  "projectFilePath": "D:\\Repos\\dotnet8-user\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj",
+  "projectFilePath": "D:\\Repos\\gestproducts-serverside\\src\\dotnet8-user.Domain\\dotnet8-user.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
